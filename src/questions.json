@@ -1,0 +1,152 @@
+[
+  {
+    "question": "Which stadium is home to FC Barcelona?",
+    "options": ["Santiago Bernabéu", "Camp Nou", "Old Trafford", "Allianz Arena"],
+    "answer": 1
+  },
+  {
+    "question": "Who scored the most goals for Barça in official competitions?",
+    "options": ["César Rodríguez", "Lionel Messi", "Luis Suárez", "Samuel Eto'o"],
+    "answer": 1
+  },
+  {
+    "question": "What are the traditional Barça team colors?",
+    "options": ["Red and Blue", "Black and Yellow", "White and Blue", "Green and Gold"],
+    "answer": 0
+  },
+  {
+    "question": "Which year was FC Barcelona founded?",
+    "options": ["1900", "1899", "1910", "1905"],
+    "answer": 1
+  },
+  {
+    "question": "Which trophy did Barça win in 2009 for the first time?",
+    "options": ["FIFA Club World Cup", "UEFA Champions League", "La Liga", "Copa del Rey"],
+    "answer": 0
+  },
+  {
+    "question": "Who is known as the greatest player in FC Barcelona history?",
+    "options": ["Ronaldinho", "Xavi", "Lionel Messi", "Iniesta"],
+    "answer": 2
+  },
+  {
+    "question": "What is the nickname of FC Barcelona?",
+    "options": ["The Reds", "The Blues", "The Catalans", "The Royal Club"],
+    "answer": 2
+  },
+  {
+    "question": "What does 'FC' in FC Barcelona stand for?",
+    "options": ["Football Club", "Fantastic Club", "First Club", "Friendly Club"],
+    "answer": 0
+  },
+  {
+    "question": "Which country is FC Barcelona based in?",
+    "options": ["Italy", "France", "Spain", "Portugal"],
+    "answer": 2
+  },
+  {
+    "question": "Which famous player wore number 10 for Barça for many years?",
+    "options": ["Xavi", "Lionel Messi", "Puyol", "Neymar"],
+    "answer": 1
+  },
+  {
+    "question": "Which player is known for amazing passes and control in midfield?",
+    "options": ["Xavi", "Messi", "Suárez", "Ronaldo"],
+    "answer": 0
+  },
+  {
+    "question": "Which former Barça player was known for his joyful playing style and tricks?",
+    "options": ["Ronaldinho", "Messi", "Iniesta", "Busquets"],
+    "answer": 0
+  },
+  {
+    "question": "Which animal appears on the FC Barcelona crest?",
+    "options": ["Eagle", "Lion", "Dragon", "No animal"],
+    "answer": 3
+  },
+  {
+    "question": "What is the name of FC Barcelona's youth academy?",
+    "options": ["La Cantera", "La Masia", "La Roja", "El Fútbol"],
+    "answer": 1
+  },
+  {
+    "question": "Which position did Carles Puyol play?",
+    "options": ["Goalkeeper", "Defender", "Midfielder", "Striker"],
+    "answer": 1
+  },
+  {
+    "question": "Who was the captain of the treble-winning team in 2009?",
+    "options": ["Messi", "Xavi", "Puyol", "Iniesta"],
+    "answer": 2
+  },
+  {
+    "question": "Which of these players played for both Barcelona and PSG?",
+    "options": ["Suárez", "Messi", "Puyol", "Xavi"],
+    "answer": 1
+  },
+  {
+    "question": "Which manager led Barça to a sextuple in 2009?",
+    "options": ["Guardiola", "Koeman", "Luis Enrique", "Valverde"],
+    "answer": 0
+  },
+  {
+    "question": "Which player is known as 'El Mago' (The Magician)?",
+    "options": ["Messi", "Ronaldinho", "Iniesta", "Pedri"],
+    "answer": 2
+  },
+  {
+    "question": "Who is the main rival of FC Barcelona?",
+    "options": ["Valencia", "Sevilla", "Real Madrid", "Atletico Madrid"],
+    "answer": 2
+  },
+  {
+    "question": "Which cup is contested between Barça and Real Madrid?",
+    "options": ["Catalonia Cup", "Derby Cup", "El Clásico", "Supercopa"],
+    "answer": 2
+  },
+  {
+    "question": "Which of these is a current young star at FC Barcelona?",
+    "options": ["Messi", "Pedri", "Suárez", "Xavi"],
+    "answer": 1
+  },
+  {
+    "question": "What does the red cross on the Barça logo represent?",
+    "options": ["Catalonia", "England", "St. George", "Spain"],
+    "answer": 2
+  },
+  {
+    "question": "What is FC Barcelona's motto?",
+    "options": ["Força Barça", "Mes que un club", "Visca el futbol", "Vamos Barça"],
+    "answer": 1
+  },
+  {
+    "question": "Which of these is NOT a real Barça player?",
+    "options": ["Ansu Fati", "Gavi", "Pikachu", "Ferran Torres"],
+    "answer": 2
+  },
+  {
+    "question": "Which tournament is FC Barcelona part of every year?",
+    "options": ["Premier League", "Serie A", "La Liga", "Bundesliga"],
+    "answer": 2
+  },
+  {
+    "question": "Which country is Ronaldinho from?",
+    "options": ["Argentina", "Brazil", "Spain", "Portugal"],
+    "answer": 1
+  },
+  {
+    "question": "Who wears jersey number 8 for Barça (as of recent seasons)?",
+    "options": ["Pedri", "Frenkie de Jong", "Gavi", "Lewandowski"],
+    "answer": 1
+  },
+  {
+    "question": "Which brand currently sponsors Barça's kits?",
+    "options": ["Nike", "Adidas", "Puma", "Reebok"],
+    "answer": 0
+  },
+  {
+    "question": "What is the name of the temporary stadium Barça used during Camp Nou renovations?",
+    "options": ["Estadi Olímpic Lluís Companys", "Mini Estadi", "Bernabéu", "Camp Tito"],
+    "answer": 0
+  }
+]
