@@ -29,7 +29,7 @@ export default function FootballQuiz() {
   const fetchLeaderboard = async () => {
     setLoadingLB(true);
     try {
-      const res = await fetch("http://localhost:8080/quiz");
+      const res = await fetch("https://barca-backend.onrender.com/quiz");
       const data = await res.json();
       setLeaderboard(data || []);
     } catch (e) {
@@ -94,7 +94,7 @@ export default function FootballQuiz() {
   const finishQuiz = async () => {
     setQuizFinished(true);
     try {
-      await fetch("http://localhost:8080/quiz", {
+      await fetch("https://barca-backend.onrender.com/quiz", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
