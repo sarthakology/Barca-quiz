@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import questionsData from "./questions.json"; // Keep/add your 100 MCQs here
+import questionsData from "./questions.json"; // Your MCQs
 
 // Fisher-Yates Shuffle
 function shuffle(arr) {
@@ -11,7 +11,7 @@ function shuffle(arr) {
   return array;
 }
 
-export default function FootballQuiz() {
+export default function App() {
   const [stage, setStage] = useState("form"); // form | quiz | result
   const [user, setUser] = useState({ name: "", email: "", phone: "" });
   const [questions, setQuestions] = useState([]);
@@ -25,20 +25,20 @@ export default function FootballQuiz() {
 
   const timerRef = useRef();
 
-  // Fetch leaderboard from backend
+  // Fetch leaderboard from backend, always force array
   const fetchLeaderboard = async () => {
     setLoadingLB(true);
     try {
       const res = await fetch("https://barca-backend.onrender.com/quiz");
       const data = await res.json();
-      setLeaderboard(data || []);
+      setLeaderboard(Array.isArray(data) ? data : []);
     } catch (e) {
-      setLeaderboard([]); // fallback
+      setLeaderboard([]);
     }
     setLoadingLB(false);
   };
 
-  // Load leaderboard on mount and when returning to form
+  // Load leaderboard on mount and whenever returning to form
   useEffect(() => {
     if (stage === "form") fetchLeaderboard();
   }, [stage]);
@@ -50,7 +50,7 @@ export default function FootballQuiz() {
         setTimer((t) => {
           if (t <= 1) {
             clearInterval(timerRef.current);
-            setTimeout(() => finishQuiz(), 500);
+            setTimeout(() => finishQuiz(score), 500);
             return 0;
           }
           return t - 1;
@@ -75,23 +75,26 @@ export default function FootballQuiz() {
     setQuizFinished(false);
   };
 
+  // Fixed pickOption: always compute nextScore and use it for setScore and finishQuiz!
   const pickOption = (idx) => {
     if (answer !== null) return;
     setAnswer(idx);
-    if (idx === questions[current].answer) setScore((s) => s + 1);
+    const nextScore = idx === questions[current].answer ? score + 1 : score;
 
     setTimeout(() => {
       if (current + 1 < questions.length && timer > 0) {
         setCurrent((i) => i + 1);
+        setScore(nextScore);
         setAnswer(null);
       } else {
-        finishQuiz();
+        setScore(nextScore);            // Make sure latest score saved for UI
+        finishQuiz(nextScore);          // Pass correct, up-to-date score!
       }
     }, 500);
   };
 
-  // --- MAIN: Submits to backend, then fetches the new leaderboard
-  const finishQuiz = async () => {
+  // Accepts the true final score, no async bugs!
+  const finishQuiz = async (finalScore) => {
     setQuizFinished(true);
     try {
       await fetch("https://barca-backend.onrender.com/quiz", {
@@ -101,10 +104,9 @@ export default function FootballQuiz() {
           name: user.name,
           email: user.email,
           phone: user.phone,
-          score
-        })
+          score: finalScore, // This is ALWAYS correct now
+        }),
       });
-      // Re-fetch leaderboard with your latest result included
       await fetchLeaderboard();
     } catch (e) {}
     setStage("result");
@@ -120,7 +122,7 @@ export default function FootballQuiz() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-purple-900 flex items-center justify-center px-2">
       <div className="bg-white max-w-md w-full rounded-2xl shadow-xl p-6 md:p-10 relative">
-        {/* Barça Banner */}
+        {/* Barcelona Banner */}
         <div className="flex flex-col items-center mb-1">
           <img
             alt="barca"
@@ -133,6 +135,7 @@ export default function FootballQuiz() {
         {/* --- FORM/LEADERBOARD/INFO --- */}
         {stage === "form" && (
           <div className="flex flex-col gap-4">
+
             {/* Leaderboard */}
             <div className="mb-4">
               <h2 className="text-lg font-semibold text-blue-800">🏆 Leaderboard</h2>
@@ -140,9 +143,9 @@ export default function FootballQuiz() {
                 <div className="text-sm text-gray-400 p-4 text-center">Loading...</div>
               ) : (
                 <ul className="bg-gray-50 rounded-xl p-3 text-sm">
-                  {leaderboard.length === 0 ? (
+                  {Array.isArray(leaderboard) && leaderboard.length === 0 ? (
                     <li className="text-gray-400 italic">No scores yet.</li>
-                  ) : leaderboard.slice(0, 5).map((item, i) => (
+                  ) : Array.isArray(leaderboard) && leaderboard.slice(0, 5).map((item, i) => (
                     <li
                       key={item._id || item.name + i}
                       className="flex justify-between items-center py-1 border-b last:border-0"
@@ -275,9 +278,9 @@ export default function FootballQuiz() {
                 <div className="text-sm text-gray-400 p-4 text-center">Loading...</div>
               ) : (
                 <ul className="bg-gray-50 rounded-xl p-3 text-sm mb-2">
-                  {leaderboard.length === 0 ? (
+                  {Array.isArray(leaderboard) && leaderboard.length === 0 ? (
                     <li className="text-gray-400 italic">No scores yet.</li>
-                  ) : leaderboard.slice(0, 5).map((item, i) => (
+                  ) : Array.isArray(leaderboard) && leaderboard.slice(0, 5).map((item, i) => (
                     <li
                       key={item._id || item.name + i}
                       className={`flex justify-between items-center py-1 border-b last:border-0
